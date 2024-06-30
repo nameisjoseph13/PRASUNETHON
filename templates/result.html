@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prediction - Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='resultstyle.css') }}">
+</head>
+<body>
+   <!--<h1><img src="static/Picsart_23-06-24_05-33-07-922.png" alt="Image description" style="width: 200px; height: 150px;"></h1> --> 
+    <br>
+    <h1 class="top">Recommendation Result</h1>
+    
+    <div class="container">
+        <div class="left-column">
+            <h2 class="cr_top">Crop Recommendation</h2>
+            <p class="res"> Best Crop : <span class="uppercase">{{ predicted_class }}</span></p>
+            {% if predicted_class == 'apple' %}
+                <img id="best-crop-image" src="{{ url_for('static', filename='apple.jpg') }}" alt="Apple" class="resimg">
+            {% elif predicted_class == 'banana' %}
+                <img id="best-crop-image" src="{{ url_for('static', filename='banana.jpg') }}" alt="Banana" class="resimg">
+            {% elif predicted_class == 'blackgram' %}
+                <img id="best-crop-image" src="{{ url_for('static', filename='blackgram.jpg') }}" alt="Blackgram" class="resimg">
+            {% elif predicted_class == 'chickpea' %}
+                <img id="best-crop-image" src="{{ url_for('static', filename='chickpea.jpg') }}" alt="Chickpea" class="resimg">
+            {% elif predicted_class == 'coffee' %}
+                <img id="best-crop-image" src="{{ url_for('static', filename='coffee.jpg') }}" alt="Coffee" class="resimg">
+            {% elif predicted_class == 'cotton' %}
+                <img id="best-crop-image" src="{{ url_for('static', filename='cotton.jpg') }}" alt="Cotton" class="resimg">
+            {% elif predicted_class == 'grapes' %}
+                <img id="best-crop-image" src="{{ url_for('static', filename='grape.jpeg') }}" alt="Grape" class="resimg">
+            {% elif predicted_class == 'jute' %}
+                <img id="best-crop-image" src="{{ url_for('static', filename='jute.jpg') }}" alt="Jute" class="resimg">
+            {% elif predicted_class == 'kidneybeans' %}
+                <img id="best-crop-image" src="{{ url_for('static', filename='kidneybeans.jpg') }}" alt="Kidneybeans" class="resimg">
+            {% elif predicted_class == 'lentil' %}
+                <img id="best-crop-image" src="{{ url_for('static', filename='lentil.jpg') }}" alt="Lentil" class="resimg">
+            {% elif predicted_class == 'maize' %}
+                <img id="best-crop-image" src="{{ url_for('static', filename='maize.jpg') }}" alt="Maize" class="resimg">
+            {% elif predicted_class == 'mango' %}
+                <img id="best-crop-image" src="{{ url_for('static', filename='mangoes.jpg') }}" alt="Mango" class="resimg">
+            {% elif predicted_class == 'mothbeans' %}
+                <img id="best-crop-image" src="{{ url_for('static', filename='mothbeans.jpg') }}" alt="Mothbeans" class="resimg">
+            {% elif predicted_class == 'mungbean' %}
+                <img id="best-crop-image" src="{{ url_for('static', filename='mughbeam.jpg') }}" alt="Mungbean" class="resimg">
+            {% elif predicted_class == 'muskmelon' %}
+                <img id="best-crop-image" src="{{ url_for('static', filename='muskmelons.jpeg') }}" alt="Muskmelon" class="resimg">
+            {% elif predicted_class == 'orange' %}
+                <img id="best-crop-image" src="{{ url_for('static', filename='oranges.jpg') }}" alt="Orange" class="resimg">
+            {% elif predicted_class == 'papaya' %}
+                <img id="best-crop-image" src="{{ url_for('static', filename='papaya.jpg') }}" alt="Papaya" class="resimg">
+            {% elif predicted_class == 'pigeonpeas' %}
+                <img id="best-crop-image" src="{{ url_for('static', filename='pigionpeas.jpg') }}" alt="Pigeonpeas" class="resimg">
+            {% elif predicted_class == 'pomegranate' %}
+                <img id="best-crop-image" src="{{ url_for('static', filename='pomogrenate.jpg') }}" alt="Pomegranate" class="resimg">
+            {% elif predicted_class == 'rice' %}
+                <img id="best-crop-image" src="{{ url_for('static', filename='rice.jpg') }}" alt="Rice" class="resimg">
+            {% elif predicted_class == 'watermelon' %}
+                <img id="best-crop-image" src="{{ url_for('static', filename='watermelon.jpg') }}" alt="Watermelon" class="resimg">
+            {% else %}
+                <img id="best-crop-image" src="{{ url_for('static', filename='sorry.png') }}" alt="Not found">
+            {% endif %}
+
+        </div>
+
+        <div class="right-column">
+            <h2 class="ar_top">Area Details</h2>
+            <p class="res_n"> NDVI : <span class="uppercase">{{ ndvi }}</span></p>
+            <p class="res"> EVI : <span class="uppercase">{{ evi }}</span></p> <br>
+            <p class="res"> Vegetation Level : <span class="uppercase">{{ level }}</span></p> <br>
+            <p class="des">  <span class="uppercase">{{ desc }}</span></p> <br>
+            <p class="res"> Best Fertilizer : <span class="uppercase">{{ fer_class }}</span></p> <br>
+            <p class="res"> Max Temperature : <span class="uppercase">{{ max_temp }}</span></p>
+            <p class="res"> Min Temperature : <span class="uppercase">{{ min_temp }}</span></p> <br>
+            <p class="res"> Today Rainfall : <span class="uppercase">{{ rain }}</span></p>
+        </div>
+    </div>
+</body>
+</html>

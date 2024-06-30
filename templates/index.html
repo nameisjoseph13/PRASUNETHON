@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang = "en" >
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv ="X-UA-Compatible" content ="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Crop Recommendation Online </title>
+    <link rel="stylesheet" href="{{ url_for('static',filename = 'style.css')}}">
+    
+</head>
+<body>
+
+
+   <!-- <h1><img src="static/Picsart_23-06-24_05-33-07-922.png" alt="Image description" style="width: 400px; height: 250px;"></h1> -->
+    
+    <form  method="POST" action="/predict">
+
+        <label>Your Location:</label><br>
+        <input type="text" id="latitude" name="latitude" >
+        <input type="text" id="longitude" name="longitude" >
+        <label></label>
+        <br> <br> <br>
+        <label>Soil Type:</label><br>
+        <div class="radio-group">
+            <input type="radio" id="Sandy" name="soiltype" value="Sandy" required>
+            <label for="Sandy">Sandy</label>
+            <input type="radio" id="Loamy" name="soiltype" value="Loamy">
+            <label for="Loamy">Loamy</label>
+            <input type="radio" id="Black" name="soiltype" value="Black">
+            <label for="Black">Black</label>
+            <input type="radio" id="Red" name="soiltype" value="Red">
+            <label for="Red">Red</label>
+            <input type="radio" id="Clayey" name="soiltype" value="Clayey">
+            <label for="Clayey">Clayey</label>
+        </div>
+        <label for="N">Nitrogen(N)    :</label>
+        <input type="number" id="N" name="N" min="0" max="140" required><br>
+
+        <label for="P">Phosphorous(P) :</label>
+        <input type="number" id="P" name="P" min="5" max="145" required><br>
+
+        <label for="K">Potassium(K)   :</label>
+        <input type="number" id="K" name="K" min="5" max="205" required><br>
+                                 
+        <label for="temperature">Temperature    :</label>
+        <input type="number" id="temperature" name="temperature" min="8" max="43" required><br>
+                              
+        <label for="humidity">Humidity       :</label>
+        <input type="number" id="humidity" name="humidity" min="14" max="99" required><br>
+
+        <label for="moisture">Moisture       :</label>
+        <input type="number" id="moisture" name="moisture" min="14" max="67" required><br>
+
+        <label for="ph">pH:</label>
+        <input type="number" id="ph" name="ph" min="3" max="9" required><br>
+
+        <label for="rainfall">Rainfall:</label>
+        <input type="number" id="rainfall" name="rainfall" min="20" max="298" required><br>
+
+        <input type="submit" value="Predict">
+    </form>
+    
+</body>
+</html>
